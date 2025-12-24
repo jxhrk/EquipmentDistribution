@@ -25,9 +25,7 @@
         <DataGrid Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding LearningHoursInfo.Classes}" 
                   x:Name="HoursDataGrid"
                   CellEditEnded="HoursDataGrid_OnCellEditEnded"
-                  GridLinesVisibility="All"
-                  CanUserResizeColumns="True"
-                  BorderThickness="1" BorderBrush="Gray">
+                  CanUserResizeColumns="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Класс" IsReadOnly="True" Binding="{Binding Year}" Width="50"/>
             </DataGrid.Columns>
@@ -53,10 +51,8 @@
         
         <DataGrid Grid.Row="10" ItemsSource="{Binding SchoolModelOverride.Classes}"
                   x:Name="ClassesCountDataGrid"
-                  GridLinesVisibility="All"
                   CellEditEnding="ClassesCountDataGrid_OnCellEditEnding"
-                  CellEditEnded="ClassesCountDataGrid_OnCellEditEnded"
-                  BorderThickness="1" BorderBrush="Gray">
+                  CellEditEnded="ClassesCountDataGrid_OnCellEditEnded">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Класс" IsReadOnly="True" Binding="{Binding Key}" Width="50"/>
                 <DataGridTextColumn Header="Кол-во" IsReadOnly="False" Binding="{Binding Value, Mode=OneWay}" Width="50"/>
@@ -64,9 +60,7 @@
         </DataGrid>
         
         <DataGrid Grid.Row="10" Grid.Column="2" ItemsSource="{Binding ClassroomCalculationResult}" 
-                  GridLinesVisibility="All"
-                  CanUserResizeColumns="True"
-                  BorderThickness="1" BorderBrush="Gray">
+                  CanUserResizeColumns="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Кабинет" IsReadOnly="True" Binding="{Binding Classroom}"/>
                 <DataGridTextColumn Header="Начальное кол-во" IsReadOnly="True" Binding="{Binding OriginalCount}"/>

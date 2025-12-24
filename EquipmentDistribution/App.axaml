@@ -8,11 +8,13 @@
         <SimpleTheme/>
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"/>
         <Style Selector="DataGrid">
+            <Setter Property="GridLinesVisibility" Value="All"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
             <Style Selector="^ TextBlock">
                 <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
             </Style>
             <Style Selector="^ DataGridRow">
-                <Setter Property="Background" Value="Transparent"></Setter>
+                <Setter Property="Background" Value="Transparent"/>
             </Style>
         </Style>
     </Application.Styles>

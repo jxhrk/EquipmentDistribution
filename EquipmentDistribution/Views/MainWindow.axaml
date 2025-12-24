@@ -40,10 +40,8 @@
         </Grid>
         
         <DataGrid Grid.Row="2" ItemsSource="{Binding DistributionResult}" 
-                  IsReadOnly="True" 
-                  GridLinesVisibility="All"
-                  CanUserResizeColumns="True"
-                  BorderThickness="1" BorderBrush="Gray">
+                  IsReadOnly="True"
+                  CanUserResizeColumns="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Кабинет" Binding="{Binding Equipment.Classroom.Name}" Width="150"/>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Equipment.Name}" Width="460"/>

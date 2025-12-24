@@ -12,8 +12,6 @@ public class SchoolModel
     
     public Dictionary<string, int> Classrooms { get; set; }
     
-    public int MaxClassrooms => Classrooms.Values.Sum();
-    
     public override string ToString() => Name;
 
     public SchoolModel Clone() => new()
