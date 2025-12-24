@@ -11,8 +11,11 @@ public partial class DialogWindow : Window
         InitializeComponent();
     }
 
-    public DialogWindow(string message) : this()
+    public DialogWindow(string message, bool receiveInput = false) : this()
     {
         Message.Text = message;
+        Input.IsVisible = receiveInput;
     }
+
+    public string ReceivedInput => Input.Text ?? "";
 }

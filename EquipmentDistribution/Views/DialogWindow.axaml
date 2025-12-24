@@ -10,8 +10,9 @@
         MaxWidth="900" MaxHeight="700"
         WindowStartupLocation="CenterOwner"
         Title="Информация">
-    <Grid RowDefinitions="*,Auto" Margin="5">
+    <Grid RowDefinitions="*,Auto,Auto" Margin="5">
         <TextBlock TextWrapping="Wrap" x:Name="Message"/>
-        <Button Grid.Row="1" Content="OK" Command="{Binding #Root.Close}" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="1" TextWrapping="Wrap" x:Name="Input" Margin="0,5"/>
+        <Button Grid.Row="2" Content="OK" Command="{Binding #Root.Close}" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

@@ -16,13 +16,14 @@
     </Design.DataContext>
 
     <Grid RowDefinitions="Auto,Auto,*" Margin="10,5">
-        <Grid ColumnDefinitions="Auto,*,Auto,*">
+        <Grid ColumnDefinitions="Auto,*,Auto,*,Auto">
             <TextBlock Grid.Column="0" Text="Тип здания:" Margin="0,5,5,5"/>
             <ComboBox Grid.Column="1" SelectedItem="{Binding SelectedSchoolType}"
                       ItemsSource="{Binding SchoolTypes}"/>
             <TextBlock Grid.Column="2" Text="Модель:" Margin="5"/>
             <ComboBox Grid.Column="3" SelectedItem="{Binding SelectedSchoolModel}"
                       ItemsSource="{Binding AvailableModels}"/>
+            <Button Grid.Column="4" Content="Калькулятор" Margin="5,0,0,0" Click="Calculator_Click"/>
         </Grid>
         <Grid Grid.Row="1" ColumnDefinitions="Auto,130,Auto,*,Auto,Auto" Margin="0,5">
             <TextBlock Grid.Column="0" Text="Оборудование:" Margin="0,5,5,5"/>
@@ -34,7 +35,7 @@
             </Border>
             <Button Grid.Column="2" Content="Загрузить файл" Margin="5,0" Click="LoadEquipment_Click"/>
             <TextBlock Grid.Column="3" Margin="5" Text="{Binding StatusText}"/>
-            <Button Grid.Column="4" Content="Рассчитать" Margin="5,0" Command="{Binding Calculate}"/>
+            <Button Grid.Column="4" Content="Рассчитать" Margin="5,0" Command="{Binding CalculateEquipment}"/>
             <Button Grid.Column="5" Content="Экспортировать" Click="Export_Click"/>
         </Grid>
         
@@ -49,14 +50,6 @@
                 <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="Auto"/>
                 <DataGridTextColumn Header="Ед. изм." Binding="{Binding Equipment.Unit}" Width="Auto"/>
             </DataGrid.Columns>
-            <DataGrid.Styles>
-                <Style Selector="TextBlock">
-                    <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
-                </Style>
-                <Style Selector="DataGridRow">
-                    <Setter Property="Background" Value="Transparent"></Setter>
-                </Style>
-            </DataGrid.Styles>
         </DataGrid>
     </Grid>
 

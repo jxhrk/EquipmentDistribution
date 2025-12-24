@@ -35,10 +35,18 @@ public partial class MainWindow : Window
                 ?.Classrooms ?? [];
 
             vm.SchoolTypes = Directory.GetFiles("SchoolModels", "*.json")
-                .Select(o => JsonConvert.DeserializeObject<SchoolType>(File.ReadAllText(o)) ?? new()).ToList();
+                .Select(o =>
+                {
+                    SchoolType type = JsonConvert.DeserializeObject<SchoolType>(File.ReadAllText(o)) ?? new();
+                    type.Filename = o;
+                    return type;
+                }).ToList();
+            
+            vm.LearningHoursInfo = JsonConvert.DeserializeObject<LearningHoursInfo>(File.ReadAllText("learning_hours.json")) ?? new();
         }
         catch (Exception ex)
         {
+            await Task.Delay(10);
             await new DialogWindow($"Не удалось загрузить данные кабинетов и моделей:\n{ex.Message}").ShowDialog(this);
         }
     }
@@ -95,5 +103,10 @@ public partial class MainWindow : Window
             await new DialogWindow($"Не удалось сохранить файл:\n{ex.Message}").ShowDialog(this);
         }
         vm.StatusText = "";
+    }
+
+    private void Calculator_Click(object? sender, RoutedEventArgs e)
+    {
+        new ModelCalculatorWindow(vm).ShowDialog(this);
     }
 }
